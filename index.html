@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RenameExpress · Nomes personalizados para abas</title>
+<meta name="description" content="Extensão para Google Chrome que dá nomes personalizados às suas abas. / Chrome extension that gives your tabs custom names.">
+<style>
+  :root {
+    --bg: #fbfaf6; --paper: #ffffff; --text: #1f2a26; --muted: #5b6b65; --accent: #467765;
+    --accent-soft: #e6f1ec; --line: #dfe7e3; --soft: #f3f7f5; --on-accent: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #131816; --paper: #1a211e; --text: #e6ece9; --muted: #9fb0a9; --accent: #8cc4ae;
+            --accent-soft: #1f3029; --line: #2b3531; --soft: #1b2320; --on-accent: #0f1714; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 880px; margin: 0 auto; padding: 24px 16px 64px; }
+  a { color: var(--accent); }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+  .logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #7ebca4, #467765);
+          display: grid; place-items: center; flex: none; }
+  .logo::before { content: "T"; color: #fff; font-weight: 800; font-size: 21px; line-height: 1; }
+  .top nav { display: flex; gap: 14px; font-size: 14px; }
+  h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.12; margin: 40px 0 12px; text-wrap: balance; letter-spacing: -0.01em; }
+  h2 { font-size: 22px; margin: 0 0 12px; text-wrap: balance; }
+  h3 { font-size: 16px; margin: 0 0 4px; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 60ch; margin: 0; }
+  .badge { display: inline-block; margin-top: 18px; font-size: 13px; font-weight: 600; padding: 6px 12px;
+           border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  section { margin-top: 56px; }
+  .tabs { margin-top: 36px; display: grid; gap: 10px; }
+  .strip { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 8px 0; background: var(--soft);
+           border: 1px solid var(--line); border-radius: 12px 12px 0 0; }
+  .strip span { font-size: 13px; padding: 6px 12px; border-radius: 8px 8px 0 0; background: var(--paper);
+                border: 1px solid var(--line); border-bottom: 0; white-space: nowrap; }
+  .strip.after span { border-color: var(--accent); }
+  .label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; padding: 0; margin: 0; list-style: none; }
+  .steps li { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .steps b { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+             background: var(--accent); color: var(--on-accent); font-size: 13px; margin-bottom: 8px; }
+  .steps p, .plan p, .plan li, .info p { color: var(--muted); margin: 0; }
+  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .plan { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 10px; align-content: start; }
+  .plan.pro { border: 2px solid var(--accent); }
+  .price { font-size: 28px; font-weight: 700; color: var(--text); }
+  .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+  .plan ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+  .info { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .info div { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .lang { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line); }
+  footer { margin-top: 56px; font-size: 14px; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+  p, li { overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <a class="brand" href="./"><span class="logo" aria-hidden="true"></span>RenameExpress</a>
+    <nav aria-label="Links">
+      <a href="privacy.html">Privacidade</a>
+      <a href="#en" lang="en">English</a>
+    </nav>
+  </div>
+
+  <!-- ───────────────────────────── PORTUGUÊS ───────────────────────────── -->
+  <div lang="pt-BR">
+    <h1>Dê nome às suas abas.</h1>
+    <p class="lead">O RenameExpress é uma extensão para Google Chrome que troca o título das abas pelo nome que você escolher, e aplica esse nome sozinha toda vez que você abre o mesmo endereço.</p>
+    <span class="badge">Em breve na Chrome Web Store</span>
+
+    <div class="tabs" aria-label="Exemplo de abas antes e depois">
+      <span class="label">Antes</span>
+      <div class="strip"><span>Dashboard</span><span>Dashboard</span><span>Dashboard</span><span>Sistema · Início</span></div>
+      <span class="label">Depois</span>
+      <div class="strip after"><span>Vendas · Sul</span><span>Estoque</span><span>Projeto 482</span><span>Financeiro</span></div>
+    </div>
+
+    <section>
+      <h2>Como funciona</h2>
+      <ol class="steps">
+        <li><b>1</b><h3>Abra a página</h3><p>A página que você quer reconhecer de relance.</p></li>
+        <li><b>2</b><h3>Digite um nome</h3><p>Clique no ícone do RenameExpress e escreva. Não precisa salvar.</p></li>
+        <li><b>3</b><h3>Pronto</h3><p>Nas próximas visitas, o nome volta sozinho.</p></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Planos</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Gratuito</h3>
+          <div class="price">R$ 0</div>
+          <p>Nomear abas e criar regras é grátis, sempre.</p>
+          <ul>
+            <li>Nome por endereço, reaplicado sozinho</li>
+            <li>Nome temporário só para uma aba</li>
+            <li>Padrões com <code>*</code> para várias páginas</li>
+            <li>Símbolos antes do nome, temas e 12 idiomas</li>
+          </ul>
+        </div>
+        <div class="plan pro">
+          <h3>Pro</h3>
+          <div class="price">R$ 69 <small>por ano</small></div>
+          <p>Tudo do gratuito, mais:</p>
+          <ul>
+            <li>Nomes com variáveis, como <code>Projeto {url:2}</code></li>
+            <li>Sincronização com o Google Drive</li>
+            <li>Backup e restauração das regras</li>
+            <li>Edição do endereço das regras salvas</li>
+            <li>Licença para dois dispositivos ativos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Assinatura e cancelamento</h2>
+      <div class="info">
+        <div>
+          <h3>Assinar</h3>
+          <p>Pela própria extensão, em Assinatura → Assinar o Pro. O pagamento é anual e processado pela Stripe. O Pro é liberado assim que o pagamento é confirmado.</p>
+        </div>
+        <div>
+          <h3>Gerenciar ou cancelar</h3>
+          <p>Em Assinatura → Gerenciar assinatura, com o e-mail usado na compra, você vê faturas, troca o cartão ou cancela. O cancelamento vale no fim do período pago: o Pro continua até lá e a renovação não é cobrada.</p>
+        </div>
+        <div>
+          <h3>Suas regras</h3>
+          <p>Nada é apagado quando a assinatura termina. As regras continuam, e os recursos Pro voltam ao renovar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Suporte e privacidade</h2>
+      <div class="info">
+        <div>
+          <h3>Suporte</h3>
+          <p>Pela extensão, em Assinatura → Precisa de ajuda?, ou pelo e-mail <a href="mailto:renameexpress@outlook.com">renameexpress@outlook.com</a>.</p>
+        </div>
+        <div>
+          <h3>Privacidade</h3>
+          <p>Suas regras ficam no seu navegador. Sem anúncios e sem rastreamento. Veja a <a href="privacy.html">política de privacidade</a>.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ───────────────────────────── ENGLISH ───────────────────────────── -->
+  <div class="lang" id="en" lang="en">
+    <h2>RenameExpress in English</h2>
+    <p class="lead">A Google Chrome extension that replaces tab titles with the names you choose, and applies them again every time you open the same address.</p>
+
+    <section>
+      <div class="plans">
+        <div class="plan">
+          <h3>Free</h3>
+          <div class="price">R$ 0</div>
+          <p>Naming tabs and creating rules stays free, always.</p>
+          <ul>
+            <li>Names by address, reapplied automatically</li>
+            <li>Temporary name for a single tab</li>
+            <li>Patterns with <code>*</code> for several pages</li>
+            <li>Symbols before the name, themes and 12 languages</li>
+          </ul>
+        </div>
+        <div class="plan pro">
+          <h3>Pro</h3>
+          <div class="price">R$ 69 <small>per year (Brazilian reais)</small></div>
+          <p>Everything in Free, plus:</p>
+          <ul>
+            <li>Names with variables, like <code>Project {url:2}</code></li>
+            <li>Google Drive sync</li>
+            <li>Backup and restore of your rules</li>
+            <li>Editing the address of saved rules</li>
+            <li>License for two active devices</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="info">
+        <div>
+          <h3>Subscribe</h3>
+          <p>From the extension, in Subscription → Subscribe to Pro. Billing is yearly and processed by Stripe.</p>
+        </div>
+        <div>
+          <h3>Manage or cancel</h3>
+          <p>In Subscription → Manage subscription, using your purchase email, you can see invoices, update your card or cancel. Cancellation takes effect at the end of the paid period: Pro stays active until then and the renewal is not charged.</p>
+        </div>
+        <div>
+          <h3>Support and privacy</h3>
+          <p>Write to <a href="mailto:renameexpress@outlook.com">renameexpress@outlook.com</a>. Your rules stay in your browser; no ads, no tracking. See the <a href="privacy.html#en">privacy policy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>RenameExpress</span>
+    <a href="mailto:renameexpress@outlook.com">renameexpress@outlook.com</a>
+    <a href="privacy.html">Política de privacidade · Privacy policy</a>
+  </footer>
+</main>
+</body>
+</html>
