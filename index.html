@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RenameExpress · Nomes personalizados para abas</title>
 <meta name="description" content="Extensão para Google Chrome que dá nomes personalizados às suas abas. / Chrome extension that gives your tabs custom names.">
+<!-- O ícone da extensão (icons/gerar-icones.py), redesenhado em SVG. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='c' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237ebca4'/%3E%3Cstop offset='1' stop-color='%23467765'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url%28%23c%29'/%3E%3Cg fill='%23fff' transform='rotate%28-45 50 50%29'%3E%3Cpolygon points='16,50 34,42 34,58' stroke='%23fff' stroke-width='4' stroke-linejoin='round'/%3E%3Crect x='32' y='40' width='38' height='20' rx='2'/%3E%3Crect x='73' y='40' width='11' height='20' rx='2'/%3E%3C/g%3E%3C/svg%3E">
 <style>
   :root {
     --bg: #fbfaf6; --paper: #ffffff; --text: #1f2a26; --muted: #5b6b65; --accent: #467765;
@@ -21,9 +23,7 @@
   a { color: var(--accent); }
   .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
-  .logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #7ebca4, #467765);
-          display: grid; place-items: center; flex: none; }
-  .logo::before { content: "T"; color: #fff; font-weight: 800; font-size: 21px; line-height: 1; }
+  .logo { width: 36px; height: 36px; flex: none; display: block; }
   .top nav { display: flex; gap: 14px; font-size: 14px; }
   h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.12; margin: 40px 0 12px; text-wrap: balance; letter-spacing: -0.01em; }
   h2 { font-size: 22px; margin: 0 0 12px; text-wrap: balance; }
@@ -62,7 +62,7 @@
 <body>
 <main>
   <div class="top">
-    <a class="brand" href="./"><span class="logo" aria-hidden="true"></span>RenameExpress</a>
+    <a class="brand" href="./"><svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="logo-cor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7ebca4"/><stop offset="1" stop-color="#467765"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#logo-cor)"/><g fill="#fff" transform="rotate(-45 50 50)"><polygon points="16,50 34,42 34,58" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><rect x="32" y="40" width="38" height="20" rx="2"/><rect x="73" y="40" width="11" height="20" rx="2"/></g></svg>RenameExpress</a>
     <nav aria-label="Links">
       <a href="privacy.html">Privacidade</a>
       <a href="#en" lang="en">English</a>
