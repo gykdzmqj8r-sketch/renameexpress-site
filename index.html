@@ -50,6 +50,7 @@
   .plan.pro { border: 2px solid var(--accent); }
   .price { font-size: 28px; font-weight: 700; color: var(--text); }
   .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+  .price-alt { margin: 2px 0 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
   .plan ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
   code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; background: var(--soft); padding: 1px 5px; border-radius: 4px; }
   .info { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
@@ -106,7 +107,8 @@
         </div>
         <div class="plan pro">
           <h3>Pro</h3>
-          <div class="price">R$ 69 <small>por ano</small></div>
+          <div class="price">R$ 5,90 <small>por mês</small></div>
+          <p class="price-alt">ou R$ 39,90 por ano (economize 44%)</p>
           <p>Tudo do gratuito, mais:</p>
           <ul>
             <li>Padrões com <code>*</code> para várias páginas</li>
@@ -126,7 +128,7 @@
       <div class="info">
         <div>
           <h3>Assinar</h3>
-          <p>Pela própria extensão, em Assinatura → Assinar o Pro. O pagamento é anual e processado pela Stripe. O Pro é liberado assim que o pagamento é confirmado. Fora do Brasil, o checkout mostra o valor convertido para a sua moeda.</p>
+          <p>Pela própria extensão, em Assinatura → Assinar o Pro. O pagamento é mensal ou anual, com renovação automática, e processado pela Stripe. O Pro é liberado assim que o pagamento é confirmado. Fora do Brasil, o checkout mostra o valor convertido para a sua moeda.</p>
         </div>
         <div>
           <h3>Gerenciar ou cancelar</h3>
@@ -144,7 +146,7 @@
       <div class="info">
         <div>
           <h3>Suporte</h3>
-          <p>Pela extensão, em Assinatura → Precisa de ajuda?, ou pelo e-mail <a href="mailto:renameexpress@outlook.com">renameexpress@outlook.com</a>.</p>
+          <p>Pelo chat da própria extensão, em Assinatura → Precisa de ajuda?: para quem tem o Pro e para quem não conseguiu ativar a assinatura.</p>
         </div>
         <div>
           <h3>Privacidade</h3>
@@ -174,7 +176,8 @@
         </div>
         <div class="plan pro">
           <h3>Pro</h3>
-          <div class="price">R$ 69 <small>per year · shown in your currency at checkout</small></div>
+          <div class="price">R$ 5.90 <small>per month · shown in your currency at checkout</small></div>
+          <p class="price-alt">or R$ 39.90 per year (save 44%)</p>
           <p>Everything in Free, plus:</p>
           <ul>
             <li>Patterns with <code>*</code> for several pages</li>
@@ -193,7 +196,7 @@
       <div class="info">
         <div>
           <h3>Subscribe</h3>
-          <p>From the extension, in Subscription → Subscribe to Pro. Billing is yearly and processed by Stripe. Outside Brazil, checkout shows the price converted to your local currency; you can also choose to pay in Brazilian reais.</p>
+          <p>From the extension, in Subscription → Subscribe to Pro. Billing is monthly or yearly, renews automatically, and is processed by Stripe. Outside Brazil, checkout shows the price converted to your local currency; you can also choose to pay in Brazilian reais.</p>
         </div>
         <div>
           <h3>Manage or cancel</h3>
@@ -201,7 +204,7 @@
         </div>
         <div>
           <h3>Support and privacy</h3>
-          <p>Write to <a href="mailto:renameexpress@outlook.com">renameexpress@outlook.com</a>. Your rules stay in your browser; no ads, no tracking. See the <a href="privacy.html#en">privacy policy</a>.</p>
+          <p>Through the chat in the extension, in Subscription → Need help?, for Pro users and anyone whose activation didn’t work. Your rules stay in your browser; no ads, no tracking. See the <a href="privacy.html#en">privacy policy</a>.</p>
         </div>
       </div>
     </section>
@@ -209,7 +212,6 @@
 
   <footer>
     <span>RenameExpress</span>
-    <a href="mailto:renameexpress@outlook.com">renameexpress@outlook.com</a>
     <a href="privacy.html">Política de privacidade · Privacy policy</a>
   </footer>
 </main>
